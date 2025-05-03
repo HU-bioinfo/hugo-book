@@ -7,6 +7,11 @@
   <li>
     <a href="{{ .Permalink }}">{{ .Title }}</a>
     <time datetime="{{ .Date.Format "2006-01-02" }}">({{ .Date.Format "2006-01-02" }})</time>
+    {{ if .Description }}
+    <p>{{ .Description }}</p>
+    {{ else if .Summary }}
+    <p>{{ .Summary }}</p>
+    {{ end }}
   </li>
   {{ end }}
 </ul>
