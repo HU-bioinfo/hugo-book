@@ -1,0 +1,12 @@
+{{ $num_items := .Get "count" | default "5" }}
+{{ $news := where .Site.RegularPages "Section" "news" }}
+{{ $sorted_news := sort $news ".Date" "desc" }}
+<h2>Recent News</h2>
+<ul>
+  {{ range first $num_items $sorted_news }}
+  <li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">({{ .Date.Format "2006-01-02" }})</time>
+  </li>
+  {{ end }}
+</ul>
