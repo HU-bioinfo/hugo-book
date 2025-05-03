@@ -3,6 +3,7 @@
 {{ $sorted_news := sort $news ".Date" "desc" }}
 {{ range $sorted_news }}
   <h2 id={{ .Title }}>
-    <a class="anchor" href="{{ .Title }}">{{ .Title }}</a><time datetime="{{ .Date.Format "2006-01-02" }}">({{ .Date.Format "2006-01-02" }})</time></h2>
+    {{ .Title }}
+    <a class="anchor" href="{{ .Title }}">{{ .Title }}#</a><time datetime="{{ .Date.Format "2006-01-02" }}">({{ .Date.Format "2006-01-02" }})</time></h2>
   {{ .Content }}
 {{ end }}
