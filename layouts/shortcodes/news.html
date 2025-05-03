@@ -1,12 +1,10 @@
-<h1>News</h1>
-<ul>
-  {{ $news := where .Site.RegularPages "Section" "news" }}
-  {{ $sorted_news := sort $news ".Date" "desc" }}
-  {{ range $sorted_news }}
-  <li>
-    <h2>{{ .Title }}</a><time datetime="{{ .Date.Format "2006-01-02" }}">({{ .Date.Format "2006-01-02" }})</time></h2>
-    {{ .Content }}
-  </li>
-  <hr style="border: 2px solid black;">
-  {{ end }}
-</ul>
+# News
+
+{{ $news := where .Site.RegularPages "Section" "news" }}
+{{ $sorted_news := sort $news ".Date" "desc" }}
+{{ range $sorted_news }}
+## {{ .Title }}
+<time datetime="{{ .Date.Format "2006-01-02" }}">({{ .Date.Format "2006-01-02" }})</time>
+{{ .Content }}
+<hr style="border: 2px solid black;">
+{{ end }}
