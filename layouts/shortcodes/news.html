@@ -1,0 +1,11 @@
+<h1>News</h1>
+<ul>
+  {{ $news := where .Site.RegularPages "Section" "news" }}
+  {{ range $news }}
+  <li>
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">({{ .Date.Format "2006-01-02" }})</time>
+    {{ .Content }}
+  </li>
+  {{ end }}
+</ul>
