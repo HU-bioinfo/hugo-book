@@ -2,11 +2,11 @@
 
 [![Hugo](https://img.shields.io/badge/hugo-0.134-blue.svg)](https://gohugo.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Build with Hugo](https://github.com/alex-shpak/hugo-book/workflows/Build%20with%20Hugo/badge.svg)
+![Build with Hugo](https://github.com/HU-bioinfo/hugo-book/workflows/Build%20with%20Hugo/badge.svg)
 
 ### [Hugo](https://gohugo.io) documentation theme as simple as plain book
 
-![Screenshot](https://raw.githubusercontent.com/alex-shpak/hugo-book/master/images/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/HU-bioinfo/hugo-book/master/images/screenshot.png)
 
 - [Features](#features)
 - [Requirements](#requirements)
@@ -42,7 +42,7 @@
 Navigate to your hugo project root and run:
 
 ```
-git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
+git submodule add https://github.com/HU-bioinfo/hugo-book themes/hugo-book
 ```
 
 Then run hugo (or set `theme = "hugo-book"`/`theme: hugo-book` in configuration file)
@@ -65,7 +65,7 @@ Navigate to your hugo project root and add [module] section to your `hugo.toml`:
 ```toml
 [module]
 [[module.imports]]
-path = 'github.com/alex-shpak/hugo-book'
+path = 'github.com/HU-bioinfo/hugo-book'
 ```
 
 Then, to load/update the theme module and run hugo:
@@ -82,7 +82,7 @@ Below is an example on how to create a new site from scratch:
 ```sh
 hugo new site mydocs; cd mydocs
 git init
-git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
+git submodule add https://github.com/HU-bioinfo/hugo-book themes/hugo-book
 cp -R themes/hugo-book/exampleSite/content.en/* ./content
 ```
 
@@ -105,7 +105,7 @@ A blog is not the primary usecase of this theme, so it has only minimal features
 ### Site Configuration
 
 There are a few configuration options that you can add to your `hugo.toml` file.  
-You can also see the `yaml` example [here](https://github.com/alex-shpak/hugo-book/blob/master/exampleSite/hugo.yaml).
+You can also see the `yaml` example [here](https://github.com/HU-bioinfo/hugo-book/blob/master/exampleSite/hugo.yaml).
 
 ```toml
 # (Optional) Set Google Analytics if you use it to track your website.
@@ -147,7 +147,7 @@ disableKinds = ['taxonomy', 'taxonomyTerm']
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  BookRepo = 'https://github.com/alex-shpak/hugo-book'
+  BookRepo = 'https://github.com/HU-bioinfo/hugo-book'
 
   # Specifies commit portion of the link to the page's last modified commit hash for 'doc' page
   # type.
@@ -304,7 +304,7 @@ If you want lower maintenance, use one of the released versions. If you want to 
 
 ## Contributing
 
-### [Extra credits to contributors](https://github.com/alex-shpak/hugo-book/graphs/contributors)
+### [Extra credits to contributors](https://github.com/HU-bioinfo/hugo-book/graphs/contributors)
 
 Contributions are welcome and I will review and consider pull requests.  
 Primary goals are:
