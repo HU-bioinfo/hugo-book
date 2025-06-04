@@ -1,23 +1,38 @@
 <div class="code-tabs">
   <div class="tab-buttons">
     {{ $tabs := split .Inner "---" }}
-    {{ range $index, $tab := $tabs }}
-      {{ $lines := split (trim $tab "\n") "\n" }}
-      {{ $title := index $lines 0 }}
-      <button class="tab-btn{{ if eq $index 0 }} active{{ end }}" data-tab="tab-{{ $index }}">
-        {{ $title }}
-      </button>
-    {{ end }}
-  </div>
-  
-  <div class="tab-contents">
+    {{ $tabIndex := 0 }}
     {{ range $index, $tab := $tabs }}
       {{ $lines := split (trim $tab "\n") "\n" }}
       {{ $title := index $lines 0 }}
       {{ $content := delimit (after 1 $lines) "\n" }}
-      <div class="tab-content{{ if eq $index 0 }} active{{ end }}" id="tab-{{ $index }}">
-        {{ $content | markdownify }}
-      </div>
+      {{ $trimmedContent := trim $content " \n\t" }}
+      
+      <!-- 空でない場合のみボタンを表示 -->
+      {{ if and $title (ne $trimmedContent "") }}
+        <button class="tab-btn{{ if eq $tabIndex 0 }} active{{ end }}" data-tab="tab-{{ $tabIndex }}">
+          {{ $title }}
+        </button>
+        {{ $tabIndex = add $tabIndex 1 }}
+      {{ end }}
+    {{ end }}
+  </div>
+ 
+  <div class="tab-contents">
+    {{ $tabIndex := 0 }}
+    {{ range $index, $tab := $tabs }}
+      {{ $lines := split (trim $tab "\n") "\n" }}
+      {{ $title := index $lines 0 }}
+      {{ $content := delimit (after 1 $lines) "\n" }}
+      {{ $trimmedContent := trim $content " \n\t" }}
+      
+      <!-- 空でない場合のみコンテンツを表示 -->
+      {{ if and $title (ne $trimmedContent "") }}
+        <div class="tab-content{{ if eq $tabIndex 0 }} active{{ end }}" id="tab-{{ $tabIndex }}">
+          {{ $content | markdownify }}
+        </div>
+        {{ $tabIndex = add $tabIndex 1 }}
+      {{ end }}
     {{ end }}
   </div>
 </div>
