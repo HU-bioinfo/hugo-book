@@ -1,0 +1,5 @@
+{{- range .Site.AllPages -}}
+{{- if and (not .Draft) (ne .Kind "404") (ne .Kind "taxonomy") -}}
+{{ .Permalink }}
+{{ end -}}
+{{- end -}}
